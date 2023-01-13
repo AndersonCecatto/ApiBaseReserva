@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ApiBaseReserva.Data.Mapping;
+using ApiBaseReserva.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiBaseReserva.Data.Context
 {
@@ -11,6 +13,8 @@ namespace ApiBaseReserva.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Empresa>(new EmpresaMap().Configure);
         }
     }
 }

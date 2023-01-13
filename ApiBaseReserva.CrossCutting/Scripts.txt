@@ -31,3 +31,5 @@ create table Empresa (
 	Email varchar(200) null,
 	constraint fk_endereco foreign key(endereco_Id) references Endereco (Id)
 )
+
+alter table cidade add column codigo varchar(10)
