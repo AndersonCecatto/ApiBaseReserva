@@ -1,0 +1,33 @@
+﻿create table Cidade (
+	Id int GENERATED ALWAYS AS identity primary key,
+	Estado_Id int2 not null,
+	Nome varchar(100) not null,
+	constraint fk_estado foreign key(Estado_Id) references Estado(Id)
+)
+
+create table Estado (
+	Id int GENERATED ALWAYS AS identity primary key,
+	Nome varchar(100) not null,
+	Uf varchar(2) not null
+)
+
+create table Endereco (
+	Id int GENERATED ALWAYS AS identity primary key,
+	Cidade_Id int2 not null,
+	Logradouro varchar(250) null,
+	Bairro varchar(200) null,
+	Numero varchar(10) null,
+	Complemento varchar(250) null,
+	Cep varchar(15) null,
+	constraint fk_cidade foreign key(Cidade_Id) references Cidade(Id)
+)
+
+create table Empresa (
+	Id int GENERATED ALWAYS AS identity primary key,
+	endereco_Id int2 not null,
+	Nome varchar(250) not null,
+	cpfCnpj varchar(14) not null,
+	Telefone varchar(50) not null,
+	Email varchar(200) null,
+	constraint fk_endereco foreign key(endereco_Id) references Endereco (Id)
+)
