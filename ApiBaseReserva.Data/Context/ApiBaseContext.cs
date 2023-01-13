@@ -15,6 +15,9 @@ namespace ApiBaseReserva.Data.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Empresa>(new EmpresaMap().Configure);
+            modelBuilder.Entity<Endereco>(new EnderecoMap().Configure);
+            modelBuilder.Entity<Cidade>(new CidadeMap().Configure);
+            modelBuilder.Entity<Estado>(new EstadoMap().Configure);
         }
     }
 }
