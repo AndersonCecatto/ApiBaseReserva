@@ -1,4 +1,5 @@
-﻿using ApiBaseReserva.Data.Repositories.Common;
+﻿using ApiBaseReserva.Data.Repositories;
+using ApiBaseReserva.Data.Repositories.Common;
 using ApiBaseReserva.Domain.Interfaces.Repositories;
 using ApiBaseReserva.Domain.Interfaces.Repositories.Common;
 using ApiBaseReserva.Domain.Interfaces.Services;
@@ -21,6 +22,8 @@ namespace ApiBaseReserva.CrossCutting.Injections
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
 
             return services;
         }
@@ -28,6 +31,7 @@ namespace ApiBaseReserva.CrossCutting.Injections
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IEmpresaService, EmpresaService>();
+            services.AddScoped<IClienteService, ClienteService>();
 
             return services;
         }
