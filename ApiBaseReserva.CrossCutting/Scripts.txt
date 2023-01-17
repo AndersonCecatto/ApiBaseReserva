@@ -1,35 +1,105 @@
 ﻿create table Cidade (
-	Id int GENERATED ALWAYS AS identity primary key,
+	"Id" int GENERATED ALWAYS AS identity primary key,
 	Estado_Id int2 not null,
 	Nome varchar(100) not null,
-	constraint fk_estado foreign key(Estado_Id) references Estado(Id)
+	constraint fk_estado foreign key(Estado_Id) references Estado("Id")
 )
 
 create table Estado (
-	Id int GENERATED ALWAYS AS identity primary key,
+	"Id" int GENERATED ALWAYS AS identity primary key,
 	Nome varchar(100) not null,
 	Uf varchar(2) not null
 )
 
 create table Endereco (
-	Id int GENERATED ALWAYS AS identity primary key,
+	"Id" int GENERATED ALWAYS AS identity primary key,
 	Cidade_Id int2 not null,
 	Logradouro varchar(250) null,
 	Bairro varchar(200) null,
 	Numero varchar(10) null,
 	Complemento varchar(250) null,
 	Cep varchar(15) null,
-	constraint fk_cidade foreign key(Cidade_Id) references Cidade(Id)
+	constraint fk_cidade foreign key(Cidade_Id) references Cidade("Id")
 )
 
 create table Empresa (
-	Id int GENERATED ALWAYS AS identity primary key,
+	"Id" int GENERATED ALWAYS AS identity primary key,
 	endereco_Id int2 not null,
 	Nome varchar(250) not null,
 	cpfCnpj varchar(14) not null,
 	Telefone varchar(50) not null,
 	Email varchar(200) null,
-	constraint fk_endereco foreign key(endereco_Id) references Endereco (Id)
+	constraint fk_endereco foreign key(endereco_Id) references Endereco ("Id")
 )
 
 alter table cidade add column codigo varchar(10)
+
+create table Usuario (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Nome varchar(100) not null,
+	DataCadastro TIMESTAMP null,
+	Ativo bool not null,
+	Login varchar(250) not null,
+	Senha varchar(250) not null
+)
+
+create table Cliente (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Usuario_Id int2 not null,
+	Telefone varchar(50) not null,
+	constraint fk_usuario foreign key(Usuario_Id) references Usuario("Id")
+)
+
+create table Funcionario (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Usuario_Id int2 not null,
+	Empresa_Id int2 not null,
+	funcao varchar(100) null,
+	constraint fk_usuario foreign key(Usuario_Id) references Usuario("Id"),
+	constraint fk_empresa foreign key(Empresa_Id) references Empresa("Id")
+)
+
+create table Mesa (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Numero int2 not null,
+	QuantidadePessoas int2 not null,
+	Reservada bool not null
+)
+
+create table ConfiguracoesEmpresa (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	"HorarioInicio" TIMESTAMP not null,
+	"HorarioFim" TIMESTAMP not null,
+	"EhPorMesas" bool not null,
+	"QuantidadePessoas" int2 null,
+	"TempoReservaMinutos" int2 null
+)
+
+create table ConfiguracoesReserva (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Mesa_Id int2 null,
+	"QuantidadePessoas" int2 null,
+	"EhComemoracao" bool not null,
+	"DescricaoComemoracao" varchar(100) null,
+	constraint fk_mesa foreign key(Mesa_Id) references Mesa("Id")
+)
+
+alter table empresa add column Ativo bool not null
+
+alter table empresa add column ConfiguracoesEmpresa_Id int2 not null
+
+alter table empresa add constraint fk_configuracoes_empresa foreign key(ConfiguracoesEmpresa_Id) references configuracoesEmpresa("Id")
+
+create table Reserva (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Empresa_Id int2 not null,
+	ConfiguracoesReserva_Id int2 not null,
+	Cliente_Id int2 not null,
+	DataCadastro TIMESTAMP not null,
+	Horario TIMESTAMP null,
+	Periodo int2 null,
+	Ativo bool not null,
+	constraint fk_empresa foreign key(Empresa_Id) references Estado("Id"),
+	constraint fk_configucacoesreserva foreign key(ConfiguracoesReserva_Id) references Estado("Id"),
+	constraint fk_cliente foreign key(Cliente_Id) references Estado("Id")
+)
