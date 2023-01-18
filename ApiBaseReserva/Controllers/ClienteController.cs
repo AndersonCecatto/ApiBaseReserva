@@ -1,6 +1,5 @@
 ﻿using ApiBaseReserva.Controllers.Common;
 using ApiBaseReserva.Domain.Dtos;
-using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 

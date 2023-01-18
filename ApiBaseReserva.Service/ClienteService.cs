@@ -8,37 +8,18 @@ namespace ApiBaseReserva.Service
 {
     public class ClienteService : BaseService<Cliente>, IClienteService
     {
-        private readonly IUsuarioRepository _usuarioRepository;
-
-        public ClienteService(IClienteRepository clienteRepository, IUsuarioRepository usuarioRepository) : base(clienteRepository)
+        public ClienteService(IClienteRepository clienteRepository) : base(clienteRepository)
         {
-            _usuarioRepository = usuarioRepository;
         }
-
-
 
         public Cliente Add(ClienteDto clienteDto)
         {
-            var entity = _usuarioRepository.Insert(new Usuario(clienteDto));
-
-            var retorno = _baseRepository.Insert(new Cliente
-            {
-                Telefone = clienteDto.Telefone,
-                UsuarioId = entity.Id
-            });
-
-            return retorno;
+            return _baseRepository.Insert(new Cliente(clienteDto));
         }
 
         public ClienteDto Update(ClienteDto clienteDto)
         {
-            _usuarioRepository.Update(new Usuario(clienteDto));
-
-            _baseRepository.Update(new Cliente
-            {
-                Telefone = clienteDto.Telefone,
-                UsuarioId = clienteDto.Id
-            });
+            _baseRepository.Update(new Cliente(clienteDto));
 
             return clienteDto;
         }

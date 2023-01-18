@@ -2,9 +2,10 @@
 
 namespace ApiBaseReserva.Domain.Dtos
 {
-    public class ClienteDto : BaseEntity
+    public class FuncionarioDto : BaseEntity
     {
-        public string Telefone { get; set; }
+        public string Funcao { get; set; }
+        public long EmpresaId { get; set; }
         public long UsuarioId { get; set; }
     }
 }

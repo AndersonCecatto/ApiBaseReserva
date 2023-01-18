@@ -29,6 +29,7 @@ create table Empresa (
 	cpfCnpj varchar(14) not null,
 	Telefone varchar(50) not null,
 	Email varchar(200) null,
+	DataCadastro timestamp not null default now(),
 	constraint fk_endereco foreign key(endereco_Id) references Endereco ("Id")
 )
 
@@ -37,7 +38,7 @@ alter table cidade add column codigo varchar(10)
 create table Usuario (
 	"Id" int GENERATED ALWAYS AS identity primary key,
 	Nome varchar(100) not null,
-	DataCadastro TIMESTAMP null,
+	DataCadastro timestamp not null default now(),
 	Ativo bool not null,
 	Login varchar(250) not null,
 	Senha varchar(250) not null
@@ -71,6 +72,8 @@ create table ConfiguracoesEmpresa (
 	"HorarioInicio" TIMESTAMP not null,
 	"HorarioFim" TIMESTAMP not null,
 	"EhPorMesas" bool not null,
+	"QuantidadeMesas" int2 null,
+	"EhPorPessoas" bool not null default true,
 	"QuantidadePessoas" int2 null,
 	"TempoReservaMinutos" int2 null
 )
@@ -95,7 +98,7 @@ create table Reserva (
 	Empresa_Id int2 not null,
 	ConfiguracoesReserva_Id int2 not null,
 	Cliente_Id int2 not null,
-	DataCadastro TIMESTAMP not null,
+	DataCadastro timestamp not null default now(),
 	Horario TIMESTAMP null,
 	Periodo int2 null,
 	Ativo bool not null,
@@ -103,5 +106,3 @@ create table Reserva (
 	constraint fk_configucacoesreserva foreign key(ConfiguracoesReserva_Id) references Estado("Id"),
 	constraint fk_cliente foreign key(Cliente_Id) references Estado("Id")
 )
-
-alter table empresa add column DataCadastro timestamp not null
