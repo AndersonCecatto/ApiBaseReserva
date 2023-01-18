@@ -9,7 +9,6 @@ namespace ApiBaseReserva.Data.Repositories
     {
         public UsuarioRepository(ApiBaseContext apiBaseContext) : base(apiBaseContext)
         {
-            
         }
     }
 }

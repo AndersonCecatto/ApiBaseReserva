@@ -14,19 +14,19 @@ namespace ApiBaseReserva.Service.Common
             _baseRepository = baseRepository;
         }
 
-        public TEntity Add(TEntity entity)
+        public virtual TEntity Add(TEntity entity)
         {
             _baseRepository.Insert(entity);
             return entity;
         }
 
-        public void Delete(int id) => _baseRepository.Delete(id);
+        public virtual void Delete(int id) => _baseRepository.Delete(id);
 
         public virtual IEnumerable<TEntity> GetAll() => _baseRepository.GetAll();
 
-        public TEntity GetById(int id) => _baseRepository.Find(id);
+        public virtual TEntity GetById(int id) => _baseRepository.Find(id);
 
-        public TEntity Update(TEntity entity)
+        public virtual TEntity Update(TEntity entity)
         {
             _baseRepository.Update(entity);
             return entity;

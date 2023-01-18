@@ -13,7 +13,7 @@ namespace ApiBaseReserva.Domain.Entities
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
         public virtual Endereco Endereco { get; set; }
-        public long ConfiguracoesEmpresaId { get; set; }
-        public virtual ConfiguracoesEmpresa ConfiguracoesEmpresa { get; set; }
+        //public long ConfiguracoesEmpresaId { get; set; }
+        //public virtual ConfiguracoesEmpresa ConfiguracoesEmpresa { get; set; }
     }
 }

@@ -18,6 +18,10 @@ namespace ApiBaseReserva.Data.Context
             modelBuilder.Entity<Endereco>(new EnderecoMap().Configure);
             modelBuilder.Entity<Cidade>(new CidadeMap().Configure);
             modelBuilder.Entity<Estado>(new EstadoMap().Configure);
+            modelBuilder.Entity<Usuario>(new UsuarioMap().Configure);
+            modelBuilder.Entity<Cliente>(new ClienteMap().Configure);
+            modelBuilder.Entity<Funcionario>(new FuncionarioMap().Configure);
+            modelBuilder.Entity<ConfiguracoesEmpresa>(new ConfiguracoesEmpresaMap().Configure);
         }
     }
 }

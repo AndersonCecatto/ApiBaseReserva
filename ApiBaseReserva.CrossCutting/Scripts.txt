@@ -103,3 +103,5 @@ create table Reserva (
 	constraint fk_configucacoesreserva foreign key(ConfiguracoesReserva_Id) references Estado("Id"),
 	constraint fk_cliente foreign key(Cliente_Id) references Estado("Id")
 )
+
+alter table empresa add column DataCadastro timestamp not null

@@ -1,4 +1,5 @@
 ﻿using ApiBaseReserva.Controllers.Common;
+using ApiBaseReserva.Domain.Dtos;
 using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace ApiBaseReserva.Controllers
         }
 
         [HttpPost]
-        public IActionResult Inserir(Cliente cliente)
+        public IActionResult Inserir(ClienteDto cliente)
         {
             return Execute(() => _clienteService.Add(cliente));
         }
@@ -26,6 +27,12 @@ namespace ApiBaseReserva.Controllers
         public IActionResult BuscarTodos()
         {
             return Execute(() => _clienteService.GetAll());
+        }
+
+        [HttpPut]
+        public IActionResult Alterar(ClienteDto cliente)
+        {
+            return Execute(() => _clienteService.Update(cliente));
         }
     }
 }

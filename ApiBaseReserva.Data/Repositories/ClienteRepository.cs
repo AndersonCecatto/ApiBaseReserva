@@ -2,7 +2,6 @@
 using ApiBaseReserva.Data.Repositories.Common;
 using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace ApiBaseReserva.Data.Repositories
 {

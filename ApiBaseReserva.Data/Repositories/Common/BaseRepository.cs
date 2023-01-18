@@ -32,10 +32,11 @@ namespace ApiBaseReserva.Data.Repositories.Common
             return _apiBaseContext.Set<TEntity>().AsEnumerable();
         }
 
-        public virtual void Insert(TEntity entity)
+        public TEntity Insert(TEntity entity)
         {
-            _apiBaseContext.Set<TEntity>().Add(entity);
+            var retorno = _apiBaseContext.Set<TEntity>().Add(entity).Entity;
             _apiBaseContext.SaveChanges();
+            return retorno;
         }
 
         public virtual void Update(TEntity entity)
