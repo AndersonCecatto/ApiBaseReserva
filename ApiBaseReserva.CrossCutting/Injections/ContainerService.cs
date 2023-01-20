@@ -26,6 +26,8 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IConfiguracoesEmpresaRepository, ConfiguracoesEmpresaRepository>();
+            services.AddScoped<IMesaRepository, MesaRepository>();
+            services.AddScoped<IConfiguracoesReservaRepository, ConfiguracoesReservaRepository>();
 
             return services;
         }
@@ -37,6 +39,8 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IFuncionarioService, FuncionarioService>();
             services.AddScoped<IConfiguracoesEmpresaService, ConfiguracoesEmpresaService>();
+            services.AddScoped<IMesaService, MesaService>();
+            services.AddScoped<IConfiguracoesReservaService, ConfiguracoesReservaService>();
 
             return services;
         }
