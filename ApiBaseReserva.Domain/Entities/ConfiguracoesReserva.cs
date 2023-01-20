@@ -12,6 +12,7 @@ namespace ApiBaseReserva.Domain.Entities
 
         public ConfiguracoesReserva(ConfiguracoesReservaDto configuracoesReserva)
         {
+            Id = configuracoesReserva.Id;
             QuantidadePessoas = configuracoesReserva.QuantidadePessoas;
             EhComemoracao = configuracoesReserva.EhComemoracao;
             DescricaoComemoracao = configuracoesReserva.DescricaoComemoracao;

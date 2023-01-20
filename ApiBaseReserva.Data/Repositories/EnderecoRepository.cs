@@ -8,16 +8,16 @@ using System.Linq;
 
 namespace ApiBaseReserva.Data.Repositories
 {
-    public class EmpresaRepository : BaseRepository<Empresa>, IEmpresaRepository
+    public class EnderecoRepository : BaseRepository<Endereco>, IEnderecoRepository
     {
-        public EmpresaRepository(ApiBaseContext apiBaseContext) : base(apiBaseContext)
+        public EnderecoRepository(ApiBaseContext apiBaseContext) : base(apiBaseContext)
         {
             
         }
 
-        public override IEnumerable<Empresa> GetAll()
+        public override IEnumerable<Endereco> GetAll()
         {
-            return _apiBaseContext.Set<Empresa>().Include(x => x.Endereco).Include(x => x.ConfiguracoesEmpresa).AsEnumerable();
+            return _apiBaseContext.Set<Endereco>().Include(x => x.Cidade).ThenInclude(x => x.Estado).AsEnumerable();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ApiBaseReserva.Controllers.Common;
+using ApiBaseReserva.Domain.Dtos;
 using ApiBaseReserva.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,11 +16,22 @@ namespace ApiBaseReserva.Controllers
             _empresaService = empresaService;
         }
 
+        [HttpPost]
+        public IActionResult Inserir(EmpresaDto empresa)
+        {
+            return Execute(() => _empresaService.Add(empresa));
+        }
+
         [HttpGet]
         public IActionResult BuscarTodos()
         {
             return Execute(() => _empresaService.GetAll());
         }
 
+        [HttpPut]
+        public IActionResult Alterar(EmpresaDto empresa)
+        {
+            return Execute(() => _empresaService.Update(empresa));
+        }
     }
 }

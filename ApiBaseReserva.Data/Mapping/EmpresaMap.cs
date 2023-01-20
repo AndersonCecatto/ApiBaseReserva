@@ -21,8 +21,8 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.EnderecoId).HasColumnName("endereco_id").HasColumnType("int");
             builder.HasOne(p => p.Endereco);
 
-            //builder.Property(p => p.ConfiguracoesEmpresa).HasColumnName("configuracoesempresa_id").HasColumnType("int");
-            //builder.HasOne(p => p.ConfiguracoesEmpresa);
+            builder.Property(p => p.ConfiguracoesEmpresaId).HasColumnName("configuracoesempresa_id").HasColumnType("int");
+            builder.HasOne(p => p.ConfiguracoesEmpresa);
         }
     }
 }

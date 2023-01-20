@@ -4,9 +4,9 @@ using ApiBaseReserva.Domain.Interfaces.Services.Common;
 
 namespace ApiBaseReserva.Domain.Interfaces.Services
 {
-    public interface IEmpresaService : IBaseService<Empresa>
+    public interface IEnderecoService : IBaseService<Endereco>
     {
-        Empresa Add(EmpresaDto empresa);
-        EmpresaDto Update(EmpresaDto empresa);
+        Endereco Add(EnderecoDto endereco);
+        EnderecoDto Update(EnderecoDto endereco);
     }
 }
