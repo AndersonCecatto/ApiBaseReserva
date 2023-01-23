@@ -29,6 +29,7 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<IMesaRepository, MesaRepository>();
             services.AddScoped<IConfiguracoesReservaRepository, ConfiguracoesReservaRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddScoped<IReservaRepository, ReservaRepository>();
 
             return services;
         }
@@ -43,6 +44,7 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<IMesaService, MesaService>();
             services.AddScoped<IConfiguracoesReservaService, ConfiguracoesReservaService>();
             services.AddScoped<IEnderecoService, EnderecoService>();
+            services.AddScoped<IReservaService, ReservaService>();
 
             return services;
         }

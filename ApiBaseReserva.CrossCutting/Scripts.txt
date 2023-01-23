@@ -78,6 +78,7 @@ create table ConfiguracoesEmpresa (
 	"TempoReservaMinutos" int2 null
 )
 
+// Não existe necessidade de ser criada
 create table ConfiguracoesReserva (
 	"Id" int GENERATED ALWAYS AS identity primary key,
 	Mesa_Id int2 null,
@@ -96,13 +97,18 @@ alter table empresa add constraint fk_configuracoes_empresa foreign key(Configur
 create table Reserva (
 	"Id" int GENERATED ALWAYS AS identity primary key,
 	Empresa_Id int2 not null,
-	ConfiguracoesReserva_Id int2 not null,
 	Cliente_Id int2 not null,
 	DataCadastro timestamp not null default now(),
 	Horario TIMESTAMP null,
 	Periodo int2 null,
 	Ativo bool not null,
 	constraint fk_empresa foreign key(Empresa_Id) references Estado("Id"),
-	constraint fk_configucacoesreserva foreign key(ConfiguracoesReserva_Id) references Estado("Id"),
 	constraint fk_cliente foreign key(Cliente_Id) references Estado("Id")
 )
+
+
+alter table reserva add column "QuantidadePessoas" int2 null
+alter table reserva add column "EhComemoracao" bool not null
+alter table reserva add column "DescricaoComemoracao" varchar(100) null
+alter table reserva add column mesa_id int2 null 
+alter table reserva add constraint fk_mesa foreign key (mesa_id) references Mesa("Id")

@@ -24,6 +24,7 @@ namespace ApiBaseReserva.Data.Context
             modelBuilder.Entity<ConfiguracoesEmpresa>(new ConfiguracoesEmpresaMap().Configure);
             modelBuilder.Entity<Mesa>(new MesaMap().Configure);
             modelBuilder.Entity<ConfiguracoesReserva>(new ConfiguracoesReservaMap().Configure);
+            modelBuilder.Entity<Reserva>(new ReservaMap().Configure);
         }
     }
 }

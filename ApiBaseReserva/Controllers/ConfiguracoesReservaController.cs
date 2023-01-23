@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiBaseReserva.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
+    //[ApiController]
+    //[Route("api/[controller]")]
     public class ConfiguracoesReservaController : BaseController
     {
         private readonly IConfiguracoesReservaService _configuracoesReservaService;
