@@ -12,9 +12,6 @@ namespace ApiBaseReserva.Data.Mapping
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Telefone).HasColumnName("telefone").HasColumnType("varchar(50)");
-
-            builder.Property(p => p.UsuarioId).HasColumnName("usuario_id").HasColumnType("int");
-            builder.HasOne(p => p.Usuario);
         }
     }
 }

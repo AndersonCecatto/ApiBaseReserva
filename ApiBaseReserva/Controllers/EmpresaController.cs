@@ -33,5 +33,12 @@ namespace ApiBaseReserva.Controllers
         {
             return Execute(() => _empresaService.Update(empresa));
         }
+
+        [HttpGet]
+        [Route("{empresaId}")]
+        public IActionResult GetById(long empresaId)
+        {
+            return Execute(() => _empresaService.GetById(empresaId));
+        }
     }
 }

@@ -16,6 +16,12 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.Ativo).HasColumnName("ativo").HasColumnType("bool");
             builder.Property(p => p.Login).HasColumnName("login").HasColumnType("varchar(250)");
             builder.Property(p => p.Senha).HasColumnName("senha").HasColumnType("varchar(250)");
+
+            builder.Property(p => p.ClienteId).HasColumnName("cliente_id").HasColumnType("int");
+            builder.HasOne(p => p.Cliente);
+
+            builder.Property(p => p.FuncionarioId).HasColumnName("funcionario_id").HasColumnType("int");
+            builder.HasOne(p => p.Funcionario);
         }
     }
 }

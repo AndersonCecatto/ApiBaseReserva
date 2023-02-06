@@ -2,6 +2,9 @@
 using ApiBaseReserva.Data.Repositories.Common;
 using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ApiBaseReserva.Data.Repositories
 {
@@ -12,5 +15,9 @@ namespace ApiBaseReserva.Data.Repositories
             
         }
 
+        public IEnumerable<Reserva> GetReservasPorUsuarioId(long usuarioId)
+        {
+            return _apiBaseContext.Set<Reserva>().Include(x => x.Empresa).Where(x => x.UsuarioId == usuarioId);
+        }
     }
 }

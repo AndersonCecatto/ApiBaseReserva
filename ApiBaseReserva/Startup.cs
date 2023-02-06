@@ -24,6 +24,9 @@ namespace ApiBaseReserva
         {
 
             services.AddControllers();
+            services.AddCors();
+            services.AddMvc();
+
             services.AddDbContext<ApiBaseContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("ApiBase"));
@@ -34,12 +37,21 @@ namespace ApiBaseReserva
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiBaseReserva", Version = "v1" });
             });
 
+            //services.AddApplicationServicesCollections();
             services.AddApplicationServicesCollections();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -47,13 +59,13 @@ namespace ApiBaseReserva
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiBaseReserva v1"));
             }
 
-            app.UseDeveloperExceptionPage();
+            //app.UseDeveloperExceptionPage();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -46,17 +46,13 @@ create table Usuario (
 
 create table Cliente (
 	"Id" int GENERATED ALWAYS AS identity primary key,
-	Usuario_Id int2 not null,
-	Telefone varchar(50) not null,
-	constraint fk_usuario foreign key(Usuario_Id) references Usuario("Id")
+	Telefone varchar(50) not null
 )
 
 create table Funcionario (
 	"Id" int GENERATED ALWAYS AS identity primary key,
-	Usuario_Id int2 not null,
 	Empresa_Id int2 not null,
 	funcao varchar(100) null,
-	constraint fk_usuario foreign key(Usuario_Id) references Usuario("Id"),
 	constraint fk_empresa foreign key(Empresa_Id) references Empresa("Id")
 )
 
@@ -97,13 +93,15 @@ alter table empresa add constraint fk_configuracoes_empresa foreign key(Configur
 create table Reserva (
 	"Id" int GENERATED ALWAYS AS identity primary key,
 	Empresa_Id int2 not null,
-	Cliente_Id int2 not null,
+	Usuario_Id int2 not null,
 	DataCadastro timestamp not null default now(),
 	Horario TIMESTAMP null,
 	Periodo int2 null,
 	Ativo bool not null,
+	cancelada bool not null default false,
+	motivo_cancelamento varchar(300) null,
 	constraint fk_empresa foreign key(Empresa_Id) references Estado("Id"),
-	constraint fk_cliente foreign key(Cliente_Id) references Estado("Id")
+	constraint fk_usuario foreign key(Usuario_Id) references Usuario("Id")
 )
 
 
@@ -112,3 +110,9 @@ alter table reserva add column "EhComemoracao" bool not null
 alter table reserva add column "DescricaoComemoracao" varchar(100) null
 alter table reserva add column mesa_id int2 null 
 alter table reserva add constraint fk_mesa foreign key (mesa_id) references Mesa("Id")
+
+alter table usuario add column cliente_id int2 null
+alter table usuario add constraint fk_cliente foreign key (cliente_id) references Cliente("Id")
+
+alter table usuario add column funcionario_id int2 null
+alter table usuario add constraint fk_funcionario foreign key (funcionario_id) references funcionario("Id")

@@ -14,11 +14,8 @@ namespace ApiBaseReserva.Domain.Entities
         {
             Id = clienteDto.Id;
             Telefone = clienteDto.Telefone;
-            UsuarioId = clienteDto.UsuarioId;
         }
 
         public string Telefone { get; set; }
-        public long UsuarioId { get; set; }
-        public virtual Usuario Usuario { get; set; }
     }
 }

@@ -19,5 +19,10 @@ namespace ApiBaseReserva.Data.Repositories
         {
             return _apiBaseContext.Set<Empresa>().Include(x => x.Endereco).Include(x => x.ConfiguracoesEmpresa).AsEnumerable();
         }
+
+        public override Empresa Find(long id)
+        {
+            return _apiBaseContext.Set<Empresa>().Include(x => x.Endereco).Include(x => x.ConfiguracoesEmpresa).FirstOrDefault(x => x.Id == id);
+        }
     }
 }

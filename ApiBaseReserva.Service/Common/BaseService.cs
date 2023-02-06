@@ -20,11 +20,11 @@ namespace ApiBaseReserva.Service.Common
             return entity;
         }
 
-        public virtual void Delete(int id) => _baseRepository.Delete(id);
+        public virtual void Delete(long id) => _baseRepository.Delete(id);
 
         public virtual IEnumerable<TEntity> GetAll() => _baseRepository.GetAll();
 
-        public virtual TEntity GetById(int id) => _baseRepository.Find(id);
+        public virtual TEntity GetById(long id) => _baseRepository.Find(id);
 
         public virtual TEntity Update(TEntity entity)
         {

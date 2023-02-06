@@ -7,7 +7,7 @@ namespace ApiBaseReserva.Domain.Interfaces.Repositories.Common
     {
         TEntity Insert(TEntity entity);
         void Update(TEntity entity);
-        void Delete(int id);
+        void Delete(long id);
         IEnumerable<TEntity> GetAll();
         TEntity Find(long id);
     }

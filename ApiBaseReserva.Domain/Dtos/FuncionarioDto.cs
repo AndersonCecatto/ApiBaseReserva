@@ -6,6 +6,5 @@ namespace ApiBaseReserva.Domain.Dtos
     {
         public string Funcao { get; set; }
         public long EmpresaId { get; set; }
-        public long UsuarioId { get; set; }
     }
 }

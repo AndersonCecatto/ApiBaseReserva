@@ -1,6 +1,7 @@
 ﻿using ApiBaseReserva.Controllers.Common;
 using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiBaseReserva.Controllers
@@ -32,6 +33,13 @@ namespace ApiBaseReserva.Controllers
         public IActionResult Alterar(Usuario usuario)
         {
             return Execute(() => _usuarioService.Update(usuario));
+        }
+
+        [HttpGet]
+        [Route("GetUsuario/usuario/{usuario}/senha/{senha}")]
+        public IActionResult BuscarUsuario(string usuario, string senha)
+        {
+            return Execute(() => _usuarioService.GetUsuario(usuario, senha));
         }
     }
 }

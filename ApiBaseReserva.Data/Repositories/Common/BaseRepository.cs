@@ -16,7 +16,7 @@ namespace ApiBaseReserva.Data.Repositories.Common
             _apiBaseContext = apiBaseContext;
         }
 
-        public virtual void Delete(int id)
+        public virtual void Delete(long id)
         {
             _apiBaseContext.Set<TEntity>().Remove(Find(id));
             _apiBaseContext.SaveChanges();
