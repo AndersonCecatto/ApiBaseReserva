@@ -25,6 +25,9 @@ namespace ApiBaseReserva.Domain.Entities
             QuantidadePessoas = reservaDto.QuantidadePessoas;
             EhComemoracao = reservaDto.EhComemoracao;
             MesaId = reservaDto.MesaId;
+            Cancelada = reservaDto.Cancelada;
+            MotivoCancelamento = reservaDto.MotivoCancelamento;
+            UsuarioCancelamentoId = reservaDto.UsuarioCancelamentoId;
         }
 
         public DateTime DataReserva { get; set; }
@@ -38,8 +41,11 @@ namespace ApiBaseReserva.Domain.Entities
         public bool Ativo { get; set; }
         public int? QuantidadePessoas { get; set; }
         public bool EhComemoracao { get; set; }
-        public string? DescricaoComemoracao { get; set; }
+        public string DescricaoComemoracao { get; set; }
         public long? MesaId { get; set; }
         public virtual Mesa Mesa { get; set; }
+        public bool? Cancelada { get; set; }
+        public string MotivoCancelamento { get; set; }
+        public int? UsuarioCancelamentoId { get; set; }
     }
 }

@@ -23,6 +23,9 @@ namespace ApiBaseReserva.Data.Mapping
 
             builder.Property(p => p.ConfiguracoesEmpresaId).HasColumnName("configuracoesempresa_id").HasColumnType("int");
             builder.HasOne(p => p.ConfiguracoesEmpresa);
+
+            builder.Property(p => p.EmpresaAdicionalId).HasColumnName("empresa_adicional_id").HasColumnType("int");
+            builder.HasOne(p => p.EmpresaAdicional);
         }
     }
 }

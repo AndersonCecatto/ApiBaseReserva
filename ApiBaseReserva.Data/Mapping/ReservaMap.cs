@@ -19,6 +19,9 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.QuantidadePessoas).HasColumnName("QuantidadePessoas").HasColumnType("int");
             builder.Property(p => p.DescricaoComemoracao).HasColumnName("DescricaoComemoracao").HasColumnType("varchar(100)");
             builder.Property(p => p.EhComemoracao).HasColumnName("EhComemoracao").HasColumnType("bool");
+            builder.Property(p => p.Cancelada).HasColumnName("cancelada").HasColumnType("bool");
+            builder.Property(p => p.MotivoCancelamento).HasColumnName("motivo_cancelamento").HasColumnType("varchar(300)");
+            builder.Property(p => p.UsuarioCancelamentoId).HasColumnName("usuario_cancelamento_id").HasColumnType("int");
 
             builder.Property(p => p.EmpresaId).HasColumnName("empresa_id").HasColumnType("int");
             builder.HasOne(p => p.Empresa);

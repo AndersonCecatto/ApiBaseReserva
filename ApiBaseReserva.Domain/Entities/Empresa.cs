@@ -31,5 +31,7 @@ namespace ApiBaseReserva.Domain.Entities
         public virtual Endereco Endereco { get; set; }
         public long ConfiguracoesEmpresaId { get; set; }
         public virtual ConfiguracoesEmpresa ConfiguracoesEmpresa { get; set; }
+        public long? EmpresaAdicionalId { get; set; }
+        public virtual EmpresaAdicional EmpresaAdicional { get; set; }
     }
 }

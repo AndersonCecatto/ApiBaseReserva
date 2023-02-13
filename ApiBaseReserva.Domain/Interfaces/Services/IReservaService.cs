@@ -9,6 +9,8 @@ namespace ApiBaseReserva.Domain.Interfaces.Services
     {
         Reserva Add(ReservaDto reservaDto);
         ReservaDto Update(ReservaDto reservaDto);
-        IEnumerable<Reserva> GetReservasPorUsuarioId(long UsuarioId);
+        IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId);
+        IEnumerable<Reserva> BuscarPorEmpresaId(long empresaId);
+        Reserva AlterarStatus(ReservaDto reservaDto);
     }
 }

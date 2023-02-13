@@ -17,5 +17,8 @@ namespace ApiBaseReserva.Domain.Dtos
         public bool EhComemoracao { get; set; }
         public string? DescricaoComemoracao { get; set; }
         public long? MesaId { get; set; }
+        public bool? Cancelada { get; set; }
+        public string MotivoCancelamento { get; set; }
+        public int? UsuarioCancelamentoId { get; set; }
     }
 }

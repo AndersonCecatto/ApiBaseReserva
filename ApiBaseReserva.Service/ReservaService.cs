@@ -21,9 +21,19 @@ namespace ApiBaseReserva.Service
             return _baseRepository.Insert(new Reserva(reservaDto));
         }
 
-        public IEnumerable<Reserva> GetReservasPorUsuarioId(long usuarioId)
+        public IEnumerable<Reserva> BuscarPorEmpresaId(long empresaId)
         {
-            return _reservaRepository.GetReservasPorUsuarioId(usuarioId);
+            return _reservaRepository.BuscarPorEmpresaId(empresaId);
+        }
+
+        public IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId)
+        {
+            return _reservaRepository.BuscarPorUsuarioId(usuarioId);
+        }
+
+        public Reserva AlterarStatus(ReservaDto reservaDto)
+        {
+            return _reservaRepository.AlterarStatus(reservaDto);
         }
 
         public ReservaDto Update(ReservaDto reservaDto)

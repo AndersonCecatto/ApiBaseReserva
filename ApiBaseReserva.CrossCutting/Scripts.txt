@@ -71,7 +71,6 @@ create table ConfiguracoesEmpresa (
 	"QuantidadeMesas" int2 null,
 	"EhPorPessoas" bool not null default true,
 	"QuantidadePessoas" int2 null,
-	"TempoReservaMinutos" int2 null
 )
 
 // Não existe necessidade de ser criada
@@ -104,6 +103,16 @@ create table Reserva (
 	constraint fk_usuario foreign key(Usuario_Id) references Usuario("Id")
 )
 
+create table Empresa_Adicional (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Bloqueia_Reserva bool not null,
+	Aceita_reserva_automaticamente bool not null,
+	Permite_reagendar_reserva bool not null,
+	exibir_mensagem_rapida bool not null,
+	tempo_permitido_cancelamento int2 null,
+	mensagem_rapida varchar(100) null
+)
+
 
 alter table reserva add column "QuantidadePessoas" int2 null
 alter table reserva add column "EhComemoracao" bool not null
@@ -116,3 +125,9 @@ alter table usuario add constraint fk_cliente foreign key (cliente_id) reference
 
 alter table usuario add column funcionario_id int2 null
 alter table usuario add constraint fk_funcionario foreign key (funcionario_id) references funcionario("Id")
+
+alter table reserva add column usuario_cencamento_id int2 null
+alter table reserva add constraint fk_usuario_cancelamento foreign key (usuario_cencamento_id) references Usuario("Id")
+
+alter table empresa add column empresa_adicional_id int2 null
+alter table empresa add constraint fk_empresa_adicional_id foreign key (empresa_adicional_id) references empresa_adicional("Id")

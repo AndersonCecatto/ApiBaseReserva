@@ -16,7 +16,6 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.EhPorMesas).HasColumnName("EhPorMesas").HasColumnType("bool");
             builder.Property(p => p.QuantidadeMesas).HasColumnName("QuantidadeMesas").HasColumnType("int");
             builder.Property(p => p.QuantidadePessoas).HasColumnName("QuantidadePessoas").HasColumnType("int");
-            builder.Property(p => p.TempoReservaMinutos).HasColumnName("TempoReservaMinutos").HasColumnType("int");
         }
     }
 }

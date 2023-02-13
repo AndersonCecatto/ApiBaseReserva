@@ -38,7 +38,21 @@ namespace ApiBaseReserva.Controllers
         [Route("{usuarioId}")]
         public IActionResult GetReservasPorUsuarioId(long usuarioId)
         {
-            return Execute(() => _reservaService.GetReservasPorUsuarioId(usuarioId));
+            return Execute(() => _reservaService.BuscarPorUsuarioId(usuarioId));
+        }
+
+        [HttpGet]
+        [Route("BuscarPorEmpresaId/{empresaId}")]
+        public IActionResult BuscarPorEmpresaId(long empresaId)
+        {
+            return Execute(() => _reservaService.BuscarPorEmpresaId(empresaId));
+        }
+
+        [HttpPost]
+        [Route("AlterarStatus")]
+        public IActionResult AlterarStatus(ReservaDto reservaDto)
+        {
+            return Execute(() => _reservaService.AlterarStatus(reservaDto));
         }
     }
 }

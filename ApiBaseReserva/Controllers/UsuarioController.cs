@@ -24,6 +24,7 @@ namespace ApiBaseReserva.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult BuscarTodos()
         {
             return Execute(() => _usuarioService.GetAll());
