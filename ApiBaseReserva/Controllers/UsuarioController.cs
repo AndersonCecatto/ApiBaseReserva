@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiBaseReserva.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsuarioController : BaseController
@@ -24,7 +25,6 @@ namespace ApiBaseReserva.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult BuscarTodos()
         {
             return Execute(() => _usuarioService.GetAll());

@@ -27,9 +27,11 @@ namespace ApiBaseReserva.Service
             _usuarioRepository.GetUsuario(usuario.Login, usuario.Senha);
 
 
-        public UserToken RequestToken(UsuarioDto usuario)
+        public UserToken RequestToken(UsuarioDto usuarioDto)
         {
-            if (UsuarioEncontrado(usuario) != null)
+            var usuario = UsuarioEncontrado(usuarioDto);
+
+            if (usuario != null)
             {
                 var claims = new[]
                 {
