@@ -24,7 +24,7 @@ namespace ApiBaseReserva.Service
         }
 
         public Usuario UsuarioEncontrado(UsuarioDto usuario) =>
-            _usuarioRepository.GetUsuario(usuario.Login, usuario.Senha);
+            _usuarioRepository.BuscarUsuario(usuario.Login, usuario.Senha);
 
 
         public UserToken RequestToken(UsuarioDto usuarioDto)

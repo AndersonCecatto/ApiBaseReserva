@@ -113,6 +113,12 @@ create table Empresa_Adicional (
 	mensagem_rapida varchar(100) null
 )
 
+create table Empresa_periodo (
+	"Id" int GENERATED ALWAYS AS identity primary key,
+	Descricao varchar(100) not null,
+	Empresa_Id int2 not null,
+	constraint fk_empresa foreign key(Empresa_Id) references Empresa("Id")
+)
 
 alter table reserva add column "QuantidadePessoas" int2 null
 alter table reserva add column "EhComemoracao" bool not null

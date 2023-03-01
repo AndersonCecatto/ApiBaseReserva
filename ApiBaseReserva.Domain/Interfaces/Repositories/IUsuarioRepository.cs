@@ -5,6 +5,7 @@ namespace ApiBaseReserva.Domain.Interfaces.Repositories
 {
     public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
-        Usuario GetUsuario(string usuario, string senha);
+        Usuario BuscarUsuario(string usuario, string senha);
+        Usuario BuscarUsuarioPorLogin(string usuario);
     }
 }

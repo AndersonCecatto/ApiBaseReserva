@@ -13,7 +13,7 @@ namespace ApiBaseReserva.Controllers.Common
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
     }

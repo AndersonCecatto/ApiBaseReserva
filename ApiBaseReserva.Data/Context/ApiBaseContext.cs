@@ -26,6 +26,7 @@ namespace ApiBaseReserva.Data.Context
             modelBuilder.Entity<ConfiguracoesReserva>(new ConfiguracoesReservaMap().Configure);
             modelBuilder.Entity<Reserva>(new ReservaMap().Configure);
             modelBuilder.Entity<EmpresaAdicional>(new EmpresaAdicionalMap().Configure);
+            modelBuilder.Entity<Periodo>(new PeriodoMap().Configure);
         }
     }
 }

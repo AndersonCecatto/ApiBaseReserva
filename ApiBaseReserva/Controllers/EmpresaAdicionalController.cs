@@ -27,5 +27,11 @@ namespace ApiBaseReserva.Controllers
         {
             return Execute(() => _empresaAdicionalService.Add(empresaAdicional));
         }
+
+        [HttpPut]
+        public IActionResult Alterar(EmpresaAdicional empresaAdicional)
+        {
+            return Execute(() => _empresaAdicionalService.Update(empresaAdicional));
+        }
     }
 }

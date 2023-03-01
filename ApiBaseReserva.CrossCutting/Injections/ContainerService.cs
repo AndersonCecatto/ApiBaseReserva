@@ -33,6 +33,7 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<IEstadoRepository, EstadoRepository>();
             services.AddScoped<ICidadeRepository, CidadeRepository>();
             services.AddScoped<IEmpresaAdicionalRepository, EmpresaAdicionalRepository>();
+            services.AddScoped<IPeriodoRepository, PeriodoRepository>();
 
             return services;
         }
@@ -52,13 +53,7 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<ICidadeService, CidadeService>();
             services.AddScoped<IEmpresaAdicionalService, EmpresaAdicionalService>();
             services.AddScoped<ITokenService, TokenService>();
-
-            return services;
-        }
-
-        private static IServiceCollection AddTokenJwt(this IServiceCollection services)
-        {
-            //services.AddAuthentication()
+            services.AddScoped<IPeriodoService, PeriodoService>();
 
             return services;
         }

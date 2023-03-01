@@ -7,5 +7,6 @@ namespace ApiBaseReserva.Domain.Interfaces.Services
     public interface IUsuarioService : IBaseService<Usuario>
     {
         Usuario GetUsuario(string usuario, string senha);
+        Usuario Add(UsuarioDto usuarioDto);
     }
 }
