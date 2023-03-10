@@ -15,7 +15,6 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.Horario).HasColumnName("horario").HasColumnType("timestamp");
             builder.Property(p => p.DataCadastro).HasColumnName("datacadastro").HasColumnType("timestamp");
             builder.Property(p => p.Ativo).HasColumnName("ativo").HasColumnType("bool");
-            builder.Property(p => p.Periodo).HasColumnName("periodo").HasColumnType("int");
             builder.Property(p => p.QuantidadePessoas).HasColumnName("QuantidadePessoas").HasColumnType("int");
             builder.Property(p => p.DescricaoComemoracao).HasColumnName("DescricaoComemoracao").HasColumnType("varchar(100)");
             builder.Property(p => p.EhComemoracao).HasColumnName("EhComemoracao").HasColumnType("bool");
@@ -31,6 +30,9 @@ namespace ApiBaseReserva.Data.Mapping
 
             builder.Property(p => p.MesaId).HasColumnName("mesa_id").HasColumnType("int");
             builder.HasOne(p => p.Mesa);
+
+            builder.Property(p => p.PeriodoId).HasColumnName("empresa_periodo_id").HasColumnType("int");
+            builder.HasOne(p => p.Periodo);
         }
     }
 }

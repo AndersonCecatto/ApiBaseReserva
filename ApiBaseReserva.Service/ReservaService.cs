@@ -3,6 +3,7 @@ using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Repositories;
 using ApiBaseReserva.Domain.Interfaces.Services;
 using ApiBaseReserva.Service.Common;
+using System;
 using System.Collections.Generic;
 
 namespace ApiBaseReserva.Service
@@ -41,6 +42,11 @@ namespace ApiBaseReserva.Service
             _baseRepository.Update(new Reserva(reservaDto));
 
             return reservaDto;
+        }
+
+        public int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto)
+        {
+            return _reservaRepository.CapacidadeReserva(reservaFiltrosDto);
         }
     }
 }

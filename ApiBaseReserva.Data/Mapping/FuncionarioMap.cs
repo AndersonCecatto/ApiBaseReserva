@@ -12,6 +12,7 @@ namespace ApiBaseReserva.Data.Mapping
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Funcao).HasColumnName("funcao").HasColumnType("varchar(100)");
+            builder.Property(p => p.Administrador).HasColumnName("adm").HasColumnType("bool");
 
             builder.Property(p => p.EmpresaId).HasColumnName("empresa_id").HasColumnType("int");
             builder.HasOne(p => p.Empresa);

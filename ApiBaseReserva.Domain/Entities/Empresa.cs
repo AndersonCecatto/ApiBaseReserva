@@ -19,6 +19,9 @@ namespace ApiBaseReserva.Domain.Entities
             DataCadastro = empresaDto.DataCadastro;
             Ativo = empresaDto.Ativo;
             ConfiguracoesEmpresaId = empresaDto.ConfiguracoesEmpresaId;
+            EmpresaAdicionalId = empresaDto.EmpresaAdicionalId;
+            Imagem = empresaDto.Imagem;
+            ImagemName = empresaDto.ImagemName;
         }
 
         public string Nome { get; set; }
@@ -33,5 +36,7 @@ namespace ApiBaseReserva.Domain.Entities
         public virtual ConfiguracoesEmpresa ConfiguracoesEmpresa { get; set; }
         public long? EmpresaAdicionalId { get; set; }
         public virtual EmpresaAdicional EmpresaAdicional { get; set; }
+        public string ImagemName { get; set; }
+        public byte[] Imagem { get; set; }
     }
 }

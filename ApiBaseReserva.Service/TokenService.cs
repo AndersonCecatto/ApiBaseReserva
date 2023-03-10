@@ -36,10 +36,12 @@ namespace ApiBaseReserva.Service
                 var claims = new[]
                 {
                     new Claim("Id", usuario.Id.ToString()),
-                    new Claim(ClaimTypes.Name, usuario.Nome),
+                    new Claim("Nome", usuario.Nome),
+                    new Claim("EmpresaId", usuario.Funcionario?.EmpresaId.ToString()),
+                    new Claim("Adm", usuario.Funcionario?.Administrador.ToString())
                 };
 
-                var expiration = DateTime.Now.AddHours(3);
+                var expiration = DateTime.Now.AddHours(8);
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

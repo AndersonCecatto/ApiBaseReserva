@@ -1,5 +1,6 @@
 ﻿using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Repositories.Common;
+using System.Collections.Generic;
 
 namespace ApiBaseReserva.Domain.Interfaces.Repositories
 {
@@ -7,5 +8,6 @@ namespace ApiBaseReserva.Domain.Interfaces.Repositories
     {
         Usuario BuscarUsuario(string usuario, string senha);
         Usuario BuscarUsuarioPorLogin(string usuario);
+        IEnumerable<Usuario> GetUsuarios(bool funcionario, long? empresaId = null);
     }
 }

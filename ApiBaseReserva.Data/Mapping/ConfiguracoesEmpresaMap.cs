@@ -15,7 +15,10 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.HorarioFim).HasColumnName("HorarioFim").HasColumnType("timestamp");
             builder.Property(p => p.EhPorMesas).HasColumnName("EhPorMesas").HasColumnType("bool");
             builder.Property(p => p.QuantidadeMesas).HasColumnName("QuantidadeMesas").HasColumnType("int");
+            builder.Property(p => p.EhPorPessoas).HasColumnName("EhPorPessoas").HasColumnType("bool");
             builder.Property(p => p.QuantidadePessoas).HasColumnName("QuantidadePessoas").HasColumnType("int");
+            builder.Property(p => p.EhPorPeriodo).HasColumnName("EhPorPeriodo").HasColumnType("bool");
+            builder.Property(p => p.DiasAtendimento).HasColumnName("DiasAtendimento").HasColumnType("varchar(20)");
         }
     }
 }

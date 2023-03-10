@@ -23,6 +23,13 @@ namespace ApiBaseReserva.Controllers
             return Execute(() => _periodoService.GetAll());
         }
 
+        [HttpGet]
+        [Route("BuscarPorId/{id}")]
+        public IActionResult BuscarPorId(long id)
+        {
+            return Execute(() => _periodoService.GetById(id));
+        }
+
         [HttpPost]
         public IActionResult Inserir(PeriodoDto periodo)
         {

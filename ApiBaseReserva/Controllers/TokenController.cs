@@ -21,18 +21,5 @@ namespace ApiBaseReserva.Controllers
         {
             return Execute(() => _tokenService.RequestToken(usuarioDto));
         }
-
-        //[HttpGet]
-        //public IActionResult BuscarTodos()
-        //{
-        //    return Execute(() => _cidadeService.GetAll());
-        //}
-
-        //[HttpGet]
-        //[Route("BuscarPorIdUf/{estadoId}")]
-        //public IActionResult BuscarPorIdUf(long estadoId)
-        //{
-        //    return Execute(() => _cidadeService.BuscarPorIdUf(estadoId));
-        //}
     }
 }

@@ -19,8 +19,11 @@ namespace ApiBaseReserva.Domain.Entities
             DataCadastro = usuarioDto.DataCadastro;
             Login = usuarioDto.Login;
             Senha = usuarioDto.Senha;
+            Telefone = usuarioDto.Telefone;
+            FuncionarioId = usuarioDto.FuncionarioId;
         }
         public string Nome { get; set; }
+        public string Telefone { get; set; }
         public DateTime? DataCadastro { get; set; }
         public bool Ativo { get; set; }
         public string Login { get; set; }

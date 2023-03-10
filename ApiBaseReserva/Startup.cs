@@ -34,6 +34,7 @@ namespace ApiBaseReserva
             services.AddDbContext<ApiBaseContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("ApiBase"));
+                options.EnableSensitiveDataLogging();
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>

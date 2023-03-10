@@ -4,6 +4,7 @@ using ApiBaseReserva.Domain.Dtos;
 using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,17 +14,30 @@ namespace ApiBaseReserva.Data.Repositories
     {
         public ReservaRepository(ApiBaseContext apiBaseContext) : base(apiBaseContext)
         {
-            
         }
 
         public IEnumerable<Reserva> BuscarPorEmpresaId(long empresaId)
         {
-            return _apiBaseContext.Set<Reserva>().Include(x => x.Usuario).Where(x => x.EmpresaId == empresaId);
+            return _apiBaseContext.Set<Reserva>().Include(x => x.Usuario).Include(x => x.Periodo).Where(x => x.EmpresaId == empresaId);
         }
 
         public IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId)
         {
-            return _apiBaseContext.Set<Reserva>().Include(x => x.Empresa).Where(x => x.UsuarioId == usuarioId);
+            return _apiBaseContext.Set<Reserva>().Include(x => x.Empresa).Include(x => x.Periodo).Where(x => x.UsuarioId == usuarioId);
+        }
+
+        public int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto)
+        {
+            var consulta = _apiBaseContext.Set<Reserva>()
+                            .Where(x => x.EmpresaId == reservaFiltrosDto.EmpresaId &&
+                                    x.DataReserva == reservaFiltrosDto.DataReserva && 
+                                    x.Cancelada == false);
+            if (reservaFiltrosDto.Horario.HasValue)
+                consulta = consulta.Where(x => x.Horario >= reservaFiltrosDto.Horario.Value.AddMinutes(-30) && x.Horario < reservaFiltrosDto.Horario.Value.AddHours(1));
+            else
+                consulta = consulta.Where(x => x.PeriodoId == reservaFiltrosDto.PeriodoId);
+
+            return consulta.Sum(x => x.QuantidadePessoas.Value);
         }
 
         public Reserva AlterarStatus(ReservaDto reservaDto)

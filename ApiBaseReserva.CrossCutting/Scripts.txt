@@ -137,3 +137,17 @@ alter table reserva add constraint fk_usuario_cancelamento foreign key (usuario_
 
 alter table empresa add column empresa_adicional_id int2 null
 alter table empresa add constraint fk_empresa_adicional_id foreign key (empresa_adicional_id) references empresa_adicional("Id")
+
+alter table configuracoesempresa add column "EhPorPeriodo" bool default false 
+
+alter table configuracoesempresa add column "DiasAtendimento" varchar(20) 
+
+alter table reserva add column empresa_periodo_id int2 null
+alter table reserva add constraint fk_empresa_periodo_id foreign key (empresa_periodo_id) references empresa_periodo("Id")
+
+alter table empresa add column imagem bytea
+alter table empresa add column imagemName varchar(250) null
+
+alter table usuario add column telefone varchar(50)
+
+alter table funcionario add column adm bool default false

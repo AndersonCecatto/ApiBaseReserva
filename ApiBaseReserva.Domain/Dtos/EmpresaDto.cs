@@ -13,5 +13,8 @@ namespace ApiBaseReserva.Domain.Dtos
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
         public long ConfiguracoesEmpresaId { get; set; }
+        public long? EmpresaAdicionalId { get; set; }
+        public string ImagemName { get; set; }
+        public byte[] Imagem { get; set; }
     }
 }

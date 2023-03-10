@@ -11,5 +11,7 @@ namespace ApiBaseReserva.Domain.Entities
         public int? QuantidadeMesas { get; set; }
         public bool EhPorPessoas { get; set; }
         public int? QuantidadePessoas { get; set; }
+        public bool EhPorPeriodo { get; set; }
+        public string DiasAtendimento { get; set; }
     }
 }

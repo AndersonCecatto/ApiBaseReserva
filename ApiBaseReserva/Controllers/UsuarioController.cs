@@ -30,10 +30,24 @@ namespace ApiBaseReserva.Controllers
             return Execute(() => _usuarioService.GetAll());
         }
 
-        [HttpPut]
-        public IActionResult Alterar(Usuario usuario)
+        [HttpGet]
+        [Route("Funcionarios/{empresaId}")]
+        public IActionResult BuscarFuncionarios(long empresaId)
         {
-            return Execute(() => _usuarioService.Update(usuario));
+            return Execute(() => _usuarioService.BuscarFuncionarios(empresaId));
+        }
+
+        [HttpGet]
+        [Route("Clientes")]
+        public IActionResult BuscarCliente()
+        {
+            return Execute(() => _usuarioService.BuscarCliente());
+        }
+
+        [HttpPut]
+        public IActionResult Alterar(UsuarioDto usuarioDto)
+        {
+            return Execute(() => _usuarioService.Atulizar(usuarioDto));
         }
 
         [HttpGet]
@@ -49,6 +63,13 @@ namespace ApiBaseReserva.Controllers
         public IActionResult InserirCliente(UsuarioDto usuarioDto)
         {
             return Execute(() => _usuarioService.Add(usuarioDto));
+        }
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public IActionResult GetById(long id)
+        {
+            return Execute(() => _usuarioService.GetById(id));
         }
     }
 }

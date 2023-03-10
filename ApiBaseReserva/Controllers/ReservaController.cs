@@ -3,6 +3,7 @@ using ApiBaseReserva.Domain.Dtos;
 using ApiBaseReserva.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ApiBaseReserva.Controllers
 {
@@ -55,6 +56,13 @@ namespace ApiBaseReserva.Controllers
         public IActionResult AlterarStatus(ReservaDto reservaDto)
         {
             return Execute(() => _reservaService.AlterarStatus(reservaDto));
+        }
+
+        [HttpPost]
+        [Route("CapacidadeReserva")]
+        public IActionResult BuscarPorEmpresaId(ReservaFiltrosDto reservaFiltrosDto)
+        {
+            return Execute(() => _reservaService.CapacidadeReserva(reservaFiltrosDto));
         }
     }
 }

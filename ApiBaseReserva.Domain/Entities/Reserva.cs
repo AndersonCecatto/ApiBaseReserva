@@ -18,7 +18,7 @@ namespace ApiBaseReserva.Domain.Entities
             DataReserva = reservaDto.DataReserva;
             DataCadastro = reservaDto.DataCadastro;
             Horario = reservaDto.Horario;
-            Periodo = reservaDto.Periodo;
+            PeriodoId = reservaDto.PeriodoId;
             EmpresaId = reservaDto.EmpresaId;
             UsuarioId = reservaDto.UsuarioId;
             Ativo = reservaDto.Ativo;
@@ -33,7 +33,8 @@ namespace ApiBaseReserva.Domain.Entities
         public DateTime DataReserva { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime? Horario { get; set; }
-        public PeriodoEnum? Periodo { get; set; }
+        public long? PeriodoId { get; set; }
+        public virtual Periodo Periodo { get; set; }
         public long EmpresaId { get; set; }
         public virtual Empresa Empresa { get; set; }
         public long UsuarioId { get; set; }

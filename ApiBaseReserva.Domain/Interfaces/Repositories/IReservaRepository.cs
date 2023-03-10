@@ -10,5 +10,6 @@ namespace ApiBaseReserva.Domain.Interfaces.Repositories
         IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId);
         IEnumerable<Reserva> BuscarPorEmpresaId(long empresaId);
         Reserva AlterarStatus(ReservaDto reservaDto);
+        int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto);
     }
 }

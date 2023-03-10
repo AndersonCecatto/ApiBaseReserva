@@ -17,6 +17,8 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.DataCadastro).HasColumnName("datacadastro").HasColumnType("timestamp");
             builder.Property(p => p.Email).HasColumnName("email").HasColumnType("varchar(20)");
             builder.Property(p => p.Ativo).HasColumnName("ativo").HasColumnType("bool");
+            builder.Property(p => p.ImagemName).HasColumnName("imagemname").HasColumnType("varchar(250)");
+            builder.Property(p => p.Imagem).HasColumnName("imagem").HasColumnType("bytea");
 
             builder.Property(p => p.EnderecoId).HasColumnName("endereco_id").HasColumnType("int");
             builder.HasOne(p => p.Endereco);

@@ -1,7 +1,9 @@
 ﻿using ApiBaseReserva.Controllers.Common;
 using ApiBaseReserva.Domain.Dtos;
 using ApiBaseReserva.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ApiBaseReserva.Controllers
 {

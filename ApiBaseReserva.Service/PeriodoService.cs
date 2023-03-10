@@ -32,5 +32,10 @@ namespace ApiBaseReserva.Service
 
             return periodoDto;
         }
+
+        public override Periodo GetById(long id)
+        {
+            return _baseRepository.Find(id);
+        }
     }
 }
