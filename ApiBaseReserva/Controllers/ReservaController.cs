@@ -7,7 +7,6 @@ using System;
 
 namespace ApiBaseReserva.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ReservaController : BaseController
