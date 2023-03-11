@@ -26,12 +26,33 @@ namespace ApiBaseReserva.Service
         public Usuario Add(UsuarioDto usuarioDto)
         {
             ValidarUsuario(usuarioDto);
+
+            if (usuarioDto.FuncionarioId.HasValue)
+            {
+                var funcionario =_funcionarioRepository.Insert(new Funcionario()
+                {
+                    EmpresaId = usuarioDto.EmpresaId.Value,
+                    Funcao = usuarioDto.Funcao,
+                    Administrador = usuarioDto.Administrador ?? false,
+                });
+
+                usuarioDto.FuncionarioId = funcionario.Id;
+            }
+
             return _baseRepository.Insert(new Usuario(usuarioDto));
         }
 
         public UsuarioDto Atulizar(UsuarioDto usuarioDto)
         {
             ValidarUsuario(usuarioDto);
+
+            if (usuarioDto.FuncionarioId.HasValue)
+                _funcionarioRepository.Update(new Funcionario
+                {
+                    Id = usuarioDto.FuncionarioId.Value,
+                    Funcao = usuarioDto.Funcao,
+                    Administrador = usuarioDto.Administrador ?? false,
+                });
 
             _baseRepository.Update(new Usuario(usuarioDto));
 
@@ -56,8 +77,10 @@ namespace ApiBaseReserva.Service
                         throw new Exception("Usuário já possui cadastro.");
                     }
                 }
-
-                throw new Exception("Usuário já possui cadastro.");
+                else
+                {
+                    throw new Exception("Usuário já possui cadastro.");
+                }
             }
         }
 

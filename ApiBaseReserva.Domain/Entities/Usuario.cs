@@ -15,7 +15,7 @@ namespace ApiBaseReserva.Domain.Entities
         {
             Id = usuarioDto.Id;
             Nome = usuarioDto.Nome;
-            Ativo = true;
+            Ativo = usuarioDto.Ativo;
             DataCadastro = usuarioDto.DataCadastro;
             Login = usuarioDto.Login;
             Senha = usuarioDto.Senha;

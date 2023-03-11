@@ -14,6 +14,8 @@ namespace ApiBaseReserva.Domain.Dtos
         public string Funcao { get; set; }
         public long? ClienteId { get; set; }
         public long? FuncionarioId { get; set; }
+        public long? EmpresaId { get; set; }
+        public bool? Administrador { get; set; }
         public bool Edicao { get; set; }
     }
 }

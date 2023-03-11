@@ -11,5 +11,14 @@ namespace ApiBaseReserva.Data.Repositories
         {
             
         }
+
+        public override void Update(Funcionario entity)
+        {
+            _apiBaseContext.Attach(entity);
+            _apiBaseContext.Entry(entity).Property(x => x.Administrador).IsModified = true;
+            _apiBaseContext.Entry(entity).Property(x => x.Funcao).IsModified = true;
+
+            _apiBaseContext.SaveChanges();
+        }
     }
 }

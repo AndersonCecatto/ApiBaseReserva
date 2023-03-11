@@ -26,7 +26,6 @@ namespace ApiBaseReserva.Service
         public Usuario UsuarioEncontrado(UsuarioDto usuario) =>
             _usuarioRepository.BuscarUsuario(usuario.Login, usuario.Senha);
 
-
         public UserToken RequestToken(UsuarioDto usuarioDto)
         {
             var usuario = UsuarioEncontrado(usuarioDto);
@@ -37,8 +36,9 @@ namespace ApiBaseReserva.Service
                 {
                     new Claim("Id", usuario.Id.ToString()),
                     new Claim("Nome", usuario.Nome),
-                    new Claim("EmpresaId", usuario.Funcionario?.EmpresaId.ToString()),
-                    new Claim("Adm", usuario.Funcionario?.Administrador.ToString())
+                    new Claim("FuncionarioId", usuario.FuncionarioId?.ToString() ?? ""),
+                    new Claim("EmpresaId", usuario.Funcionario?.EmpresaId.ToString() ?? ""),
+                    new Claim("Adm", usuario.Funcionario?.Administrador.ToString() ?? "")
                 };
 
                 var expiration = DateTime.Now.AddHours(8);

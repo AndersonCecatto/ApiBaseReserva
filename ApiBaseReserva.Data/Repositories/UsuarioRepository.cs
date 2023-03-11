@@ -16,7 +16,7 @@ namespace ApiBaseReserva.Data.Repositories
 
         public Usuario BuscarUsuario(string usuario, string senha)
         {
-            return _apiBaseContext.Set<Usuario>().Include(x => x.Funcionario).FirstOrDefault(x => x.Login.Trim() == usuario.Trim() && x.Senha == senha);
+            return _apiBaseContext.Set<Usuario>().Include(x => x.Funcionario).FirstOrDefault(x => x.Login.Trim() == usuario.Trim() && x.Senha == senha && x.Ativo);
         }
 
         public Usuario BuscarUsuarioPorLogin(string usuario)
