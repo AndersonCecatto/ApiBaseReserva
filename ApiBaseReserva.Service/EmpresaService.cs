@@ -20,6 +20,11 @@ namespace ApiBaseReserva.Service
 
         public EmpresaDto Update(EmpresaDto empresa)
         {
+            var retorno = _baseRepository.Find(empresa.Id);
+
+            if (empresa.ImagemName == retorno.ImagemName)
+                empresa.Imagem = retorno.Imagem;
+
             _baseRepository.Update(new Empresa(empresa));
 
             return empresa;

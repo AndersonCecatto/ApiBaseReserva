@@ -22,7 +22,7 @@ namespace ApiBaseReserva.Data.Repositories
 
         public override Empresa Find(long id)
         {
-            return _apiBaseContext.Set<Empresa>()
+            return _apiBaseContext.Set<Empresa>().AsNoTracking()
                 .Include(x => x.ConfiguracoesEmpresa)
                 .Include(x => x.Endereco)
                     .ThenInclude(x => x.Cidade)
