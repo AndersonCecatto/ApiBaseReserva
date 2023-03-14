@@ -26,7 +26,7 @@ create table Empresa (
 	"Id" int GENERATED ALWAYS AS identity primary key,
 	endereco_Id int2 not null,
 	Nome varchar(250) not null,
-	cpfCnpj varchar(14) not null,
+	cpfCnpj varchar(20) not null,
 	Telefone varchar(50) not null,
 	Email varchar(200) null,
 	DataCadastro timestamp not null default now(),

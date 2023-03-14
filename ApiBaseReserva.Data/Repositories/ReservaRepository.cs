@@ -23,7 +23,10 @@ namespace ApiBaseReserva.Data.Repositories
 
         public IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId)
         {
-            return _apiBaseContext.Set<Reserva>().Include(x => x.Empresa).Include(x => x.Periodo).Where(x => x.UsuarioId == usuarioId);
+            return _apiBaseContext.Set<Reserva>()
+                                  .Include(x => x.Empresa)
+                                  .ThenInclude(x => x.EmpresaAdicional)
+                                  .Include(x => x.Periodo).Where(x => x.UsuarioId == usuarioId);
         }
 
         public int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto)
