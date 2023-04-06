@@ -7,7 +7,7 @@ namespace ApiBaseReserva.Domain.Interfaces.Repositories
 {
     public interface IReservaRepository : IBaseRepository<Reserva>
     {
-        IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId);
+        IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId, long empresaId);
         IEnumerable<Reserva> BuscarPorEmpresaId(long empresaId);
         Reserva AlterarStatus(ReservaDto reservaDto);
         int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto);

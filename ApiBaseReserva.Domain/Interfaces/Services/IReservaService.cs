@@ -10,7 +10,7 @@ namespace ApiBaseReserva.Domain.Interfaces.Services
     {
         Reserva Add(ReservaDto reservaDto);
         ReservaDto Update(ReservaDto reservaDto);
-        IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId);
+        IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId, long empresaId);
         IEnumerable<Reserva> BuscarPorEmpresaId(long empresaId);
         Reserva AlterarStatus(ReservaDto reservaDto);
         int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto);

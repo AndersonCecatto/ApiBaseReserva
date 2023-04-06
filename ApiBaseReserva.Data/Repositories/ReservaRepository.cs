@@ -21,12 +21,17 @@ namespace ApiBaseReserva.Data.Repositories
             return _apiBaseContext.Set<Reserva>().Include(x => x.Usuario).Include(x => x.Periodo).Where(x => x.EmpresaId == empresaId);
         }
 
-        public IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId)
+        public IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId, long empresaId)
         {
-            return _apiBaseContext.Set<Reserva>()
+            var consulta = _apiBaseContext.Set<Reserva>()
                                   .Include(x => x.Empresa)
                                   .ThenInclude(x => x.EmpresaAdicional)
                                   .Include(x => x.Periodo).Where(x => x.UsuarioId == usuarioId);
+
+            if (empresaId > 0)
+                consulta = consulta.Where(x => x.EmpresaId == empresaId);
+
+            return consulta;
         }
 
         public int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto)
@@ -47,9 +52,10 @@ namespace ApiBaseReserva.Data.Repositories
         {
             var reserva = new Reserva()
             { 
-                Id = reservaDto.Id, 
+                Id = reservaDto.Id,
                 Cancelada = reservaDto.Cancelada,
                 Ativo = reservaDto.Ativo,
+                Reservado = reservaDto.Reservado,
                 MotivoCancelamento = reservaDto.MotivoCancelamento,
                 UsuarioCancelamentoId = reservaDto.UsuarioCancelamentoId
             };
@@ -59,6 +65,7 @@ namespace ApiBaseReserva.Data.Repositories
             _apiBaseContext.Entry(reserva).Property(x => x.MotivoCancelamento).IsModified = true;
             _apiBaseContext.Entry(reserva).Property(x => x.Ativo).IsModified = true;
             _apiBaseContext.Entry(reserva).Property(x => x.UsuarioCancelamentoId).IsModified = true;
+            _apiBaseContext.Entry(reserva).Property(x => x.Reservado).IsModified = true;
 
             _apiBaseContext.SaveChanges();
 

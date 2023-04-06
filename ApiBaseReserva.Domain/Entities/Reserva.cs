@@ -2,6 +2,7 @@
 using ApiBaseReserva.Domain.Dtos;
 using ApiBaseReserva.Domain.Enum;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiBaseReserva.Domain.Entities
 {
@@ -22,8 +23,10 @@ namespace ApiBaseReserva.Domain.Entities
             EmpresaId = reservaDto.EmpresaId;
             UsuarioId = reservaDto.UsuarioId;
             Ativo = reservaDto.Ativo;
+            Reservado = reservaDto.Reservado;
             QuantidadePessoas = reservaDto.QuantidadePessoas;
             EhComemoracao = reservaDto.EhComemoracao;
+            DescricaoComemoracao = reservaDto.DescricaoComemoracao;
             MesaId = reservaDto.MesaId;
             Cancelada = reservaDto.Cancelada;
             MotivoCancelamento = reservaDto.MotivoCancelamento;
@@ -32,7 +35,11 @@ namespace ApiBaseReserva.Domain.Entities
 
         public DateTime DataReserva { get; set; }
         public DateTime DataCadastro { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public DateTime? Horario { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long? PeriodoId { get; set; }
         public virtual Periodo Periodo { get; set; }
         public long EmpresaId { get; set; }
@@ -40,6 +47,7 @@ namespace ApiBaseReserva.Domain.Entities
         public long UsuarioId { get; set; }
         public virtual Usuario Usuario { get; set; }
         public bool Ativo { get; set; }
+        public bool Reservado { get; set; }
         public int? QuantidadePessoas { get; set; }
         public bool EhComemoracao { get; set; }
         public string DescricaoComemoracao { get; set; }

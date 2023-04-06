@@ -54,6 +54,7 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<IEmpresaAdicionalService, EmpresaAdicionalService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPeriodoService, PeriodoService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             return services;
         }

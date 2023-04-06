@@ -151,3 +151,5 @@ alter table empresa add column imagemName varchar(250) null
 alter table usuario add column telefone varchar(50)
 
 alter table funcionario add column adm bool default false
+
+alter table reserva add column reservado bool default false

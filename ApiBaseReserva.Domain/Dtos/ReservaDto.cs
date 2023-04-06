@@ -12,6 +12,7 @@ namespace ApiBaseReserva.Domain.Dtos
         public long EmpresaId { get; set; }
         public long UsuarioId { get; set; }
         public bool Ativo { get; set; }
+        public bool Reservado { get; set; }
         public int? QuantidadePessoas { get; set; }
         public bool EhComemoracao { get; set; }
         public string DescricaoComemoracao { get; set; }

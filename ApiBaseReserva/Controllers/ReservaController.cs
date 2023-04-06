@@ -37,10 +37,10 @@ namespace ApiBaseReserva.Controllers
         }
 
         [HttpGet]
-        [Route("{usuarioId}")]
-        public IActionResult GetReservasPorUsuarioId(long usuarioId)
+        [Route("{usuarioId}/{empresaId}")]
+        public IActionResult GetReservasPorUsuarioId(long usuarioId, long empresaId)
         {
-            return Execute(() => _reservaService.BuscarPorUsuarioId(usuarioId));
+            return Execute(() => _reservaService.BuscarPorUsuarioId(usuarioId, empresaId));
         }
 
         [HttpGet]

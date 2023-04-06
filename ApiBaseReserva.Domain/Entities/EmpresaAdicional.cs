@@ -9,6 +9,7 @@ namespace ApiBaseReserva.Domain.Entities
         public bool PermiteReagendarReserva { get; set; }
         public bool ExibirMensagemRapida { get; set; }
         public int TempoPermitidoCancelamento { get; set; }
+        public int? TempoToleranciaCancelamento { get; set; }
         public string MensagemRapida { get; set; }
     }
 }

@@ -27,9 +27,9 @@ namespace ApiBaseReserva.Service
             return _reservaRepository.BuscarPorEmpresaId(empresaId);
         }
 
-        public IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId)
+        public IEnumerable<Reserva> BuscarPorUsuarioId(long usuarioId, long empresaId)
         {
-            return _reservaRepository.BuscarPorUsuarioId(usuarioId);
+            return _reservaRepository.BuscarPorUsuarioId(usuarioId, empresaId);
         }
 
         public Reserva AlterarStatus(ReservaDto reservaDto)

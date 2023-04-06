@@ -16,6 +16,7 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.PermiteReagendarReserva).HasColumnName("permite_reagendar_reserva").HasColumnType("bool");
             builder.Property(p => p.ExibirMensagemRapida).HasColumnName("exibir_mensagem_rapida").HasColumnType("bool");
             builder.Property(p => p.TempoPermitidoCancelamento).HasColumnName("tempo_permitido_cancelamento").HasColumnType("int");
+            builder.Property(p => p.TempoToleranciaCancelamento).HasColumnName("tempo_tolerancia_cancelamento").HasColumnType("int");
             builder.Property(p => p.MensagemRapida).HasColumnName("mensagem_rapida").HasColumnType("varchar(100)");
         }
     }

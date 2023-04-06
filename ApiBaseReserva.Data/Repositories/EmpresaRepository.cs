@@ -17,7 +17,11 @@ namespace ApiBaseReserva.Data.Repositories
 
         public override IEnumerable<Empresa> GetAll()
         {
-            return _apiBaseContext.Set<Empresa>().Include(x => x.Endereco).Include(x => x.EmpresaAdicional).Include(x => x.ConfiguracoesEmpresa).AsEnumerable();
+            return _apiBaseContext.Set<Empresa>()
+                                  .Include(x => x.Endereco)
+                                  .ThenInclude(x => x.Cidade)
+                                  .Include(x => x.EmpresaAdicional)
+                                  .Include(x => x.ConfiguracoesEmpresa).AsEnumerable();
         }
 
         public override Empresa Find(long id)
