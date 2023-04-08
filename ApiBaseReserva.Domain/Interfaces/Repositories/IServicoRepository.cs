@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace ApiBaseReserva.Domain.Interfaces.Repositories
 {
-    public interface IPeriodoRepository : IBaseRepository<Periodo>
+    public interface IServicoRepository : IBaseRepository<Servico>
     {
-        IEnumerable<Periodo> BuscarPorEmpresaId(long empresaId, bool buscaCompleta);
+        IEnumerable<Servico> BuscarPorEmpresaId(long empresaId, bool buscaCompleta);
     }
 }

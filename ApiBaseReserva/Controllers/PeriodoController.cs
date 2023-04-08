@@ -43,17 +43,17 @@ namespace ApiBaseReserva.Controllers
         }
 
         [HttpGet]
-        [Route("{empresaId}")]
-        public IActionResult BuscarPorEmpresaId(long empresaId)
+        [Route("{empresaId}/{buscaCompleta}")]
+        public IActionResult BuscarPorEmpresaId(long empresaId, bool buscaCompleta)
         {
-            return Execute(() => _periodoService.BuscarPorEmpresaId(empresaId));
+            return Execute(() => _periodoService.BuscarPorEmpresaId(empresaId, buscaCompleta));
         }
 
         [HttpDelete]
         [Route("{id}")]
         public IActionResult Delete(long id)
         {
-            return Execute(() => { _periodoService.Delete(id); return id; });
+            return Execute(() => _periodoService.Deletar(id));
         }
 
     }

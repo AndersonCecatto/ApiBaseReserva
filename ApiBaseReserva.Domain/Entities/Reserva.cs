@@ -31,6 +31,7 @@ namespace ApiBaseReserva.Domain.Entities
             Cancelada = reservaDto.Cancelada;
             MotivoCancelamento = reservaDto.MotivoCancelamento;
             UsuarioCancelamentoId = reservaDto.UsuarioCancelamentoId;
+            ServicoId = reservaDto.ServicoId;
         }
 
         public DateTime DataReserva { get; set; }
@@ -42,6 +43,8 @@ namespace ApiBaseReserva.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long? PeriodoId { get; set; }
         public virtual Periodo Periodo { get; set; }
+        public long? ServicoId { get; set; }
+        public virtual Servico Servico { get; set; }
         public long EmpresaId { get; set; }
         public virtual Empresa Empresa { get; set; }
         public long UsuarioId { get; set; }
@@ -56,5 +59,6 @@ namespace ApiBaseReserva.Domain.Entities
         public bool? Cancelada { get; set; }
         public string MotivoCancelamento { get; set; }
         public int? UsuarioCancelamentoId { get; set; }
+        public bool? Avaliado { get; set; }
     }
 }

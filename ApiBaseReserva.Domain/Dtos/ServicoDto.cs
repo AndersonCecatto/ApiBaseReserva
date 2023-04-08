@@ -1,11 +1,11 @@
 ﻿using ApiBaseReserva.Domain.Common;
-using ApiBaseReserva.Domain.Entities;
 
 namespace ApiBaseReserva.Domain.Dtos
 {
-    public class PeriodoDto : BaseEntity
+    public class ServicoDto : BaseEntity
     {
         public string Descricao { get; set; }
+        public decimal? Valor { get; set; }
         public bool Ativo { get; set; }
         public long EmpresaId { get; set; }
     }

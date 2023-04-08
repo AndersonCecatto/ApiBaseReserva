@@ -63,5 +63,27 @@ namespace ApiBaseReserva.Controllers
         {
             return Execute(() => _reservaService.CapacidadeReserva(reservaFiltrosDto));
         }
+
+        [HttpPost]
+        [Route("Avaliacao")]
+        public IActionResult Avaliar(AvaliacaoDto avaliacaoDto)
+        {
+            return Execute(() => _reservaService.Avaliar(avaliacaoDto));
+        }
+
+        [HttpGet]
+        [Route("BuscarAvaliacao/{reservaId}")]
+        public IActionResult BuscarAvaliacaoPorReservaId(long reservaId)
+        {
+            return Execute(() => _reservaService.BuscarAvaliacaoPorReservaId(reservaId));
+        }
+
+        [HttpGet]
+        [Route("BuscarAvaliacaoEmpresa/{empresaId}")]
+        public IActionResult BuscarAvaliacaoPorEmpresaId(long empresaId)
+        {
+            return Execute(() => _reservaService.BuscarAvaliacaoPorEmpresaId(empresaId));
+        }
+
     }
 }

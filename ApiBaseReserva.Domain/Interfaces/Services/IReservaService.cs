@@ -1,7 +1,6 @@
 ﻿using ApiBaseReserva.Domain.Dtos;
 using ApiBaseReserva.Domain.Entities;
 using ApiBaseReserva.Domain.Interfaces.Services.Common;
-using System;
 using System.Collections.Generic;
 
 namespace ApiBaseReserva.Domain.Interfaces.Services
@@ -14,5 +13,8 @@ namespace ApiBaseReserva.Domain.Interfaces.Services
         IEnumerable<Reserva> BuscarPorEmpresaId(long empresaId);
         Reserva AlterarStatus(ReservaDto reservaDto);
         int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto);
+        Avaliacao Avaliar(AvaliacaoDto avaliacaoDto);
+        Avaliacao BuscarAvaliacaoPorReservaId(long reservaId);
+        IEnumerable<Avaliacao> BuscarAvaliacaoPorEmpresaId(long empresaId);
     }
 }

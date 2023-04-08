@@ -34,6 +34,8 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<ICidadeRepository, CidadeRepository>();
             services.AddScoped<IEmpresaAdicionalRepository, EmpresaAdicionalRepository>();
             services.AddScoped<IPeriodoRepository, PeriodoRepository>();
+            services.AddScoped<IServicoRepository, ServicoRepository>();
+            services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
 
             return services;
         }
@@ -55,6 +57,7 @@ namespace ApiBaseReserva.CrossCutting.Injections
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPeriodoService, PeriodoService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IServicoService, ServicoService>();
 
             return services;
         }

@@ -3,21 +3,23 @@ using ApiBaseReserva.Domain.Dtos;
 
 namespace ApiBaseReserva.Domain.Entities
 {
-    public class Periodo : BaseEntity
+    public class Servico : BaseEntity
     {
-        public Periodo()
+        public Servico()
         {
         }
 
-        public Periodo(PeriodoDto periodoDto)
+        public Servico(ServicoDto servicoDto)
         {
-            Id = periodoDto.Id;
-            Descricao = periodoDto.Descricao;
-            Ativo = periodoDto.Ativo;
-            EmpresaId = periodoDto.EmpresaId;
+            Id = servicoDto.Id;
+            Descricao = servicoDto.Descricao;
+            Valor = servicoDto.Valor;
+            Ativo = servicoDto.Ativo;
+            EmpresaId = servicoDto.EmpresaId;
         }
 
         public string Descricao { get; set; }
+        public decimal? Valor { get; set; }
         public bool Ativo { get; set; }
         public long EmpresaId { get; set; }
         public virtual Empresa Empresa { get; set; }

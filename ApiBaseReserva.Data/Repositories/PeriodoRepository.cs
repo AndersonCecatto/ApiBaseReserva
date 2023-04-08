@@ -22,6 +22,7 @@ namespace ApiBaseReserva.Data.Repositories
                                   {
                                       Id = x.Id,
                                       Descricao = x.Descricao,
+                                      Ativo = x.Ativo,
                                       EmpresaId = x.EmpresaId,
                                       Empresa = new Empresa
                                       {
@@ -32,6 +33,14 @@ namespace ApiBaseReserva.Data.Repositories
 
         public override IEnumerable<Periodo> GetAll() => BuscarTodos();
 
-        public IEnumerable<Periodo> BuscarPorEmpresaId(long empresaId) => BuscarTodos().Where(x => x.EmpresaId == empresaId);
+        public IEnumerable<Periodo> BuscarPorEmpresaId(long empresaId, bool buscaCompleta)
+        {
+            var consulta = BuscarTodos().Where(x => x.EmpresaId == empresaId);
+
+            if (!buscaCompleta)
+                consulta = consulta.Where(x => x.Ativo == true);
+
+            return consulta.OrderBy(x => x.Id);
+        }
     }
 }

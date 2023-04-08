@@ -4,14 +4,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ApiBaseReserva.Data.Mapping
 {
-    public class PeriodoMap : IEntityTypeConfiguration<Periodo>
+    public class ServicoMap : IEntityTypeConfiguration<Servico>
     {
-        public void Configure(EntityTypeBuilder<Periodo> builder)
+        public void Configure(EntityTypeBuilder<Servico> builder)
         {
-            builder.ToTable("empresa_periodo");
+            builder.ToTable("servico");
             builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.Descricao).HasColumnName("descricao").HasColumnType("varchar(100)");
+            builder.Property(p => p.Descricao).HasColumnName("descricao").HasColumnType("varchar(250)");
+            builder.Property(p => p.Valor).HasColumnName("valor").HasColumnType("numeric(5,2)");
 
             builder.Property(p => p.EmpresaId).HasColumnName("empresa_id").HasColumnType("int");
             builder.Property(p => p.Ativo).HasColumnName("ativo").HasColumnType("bool");

@@ -11,10 +11,12 @@ namespace ApiBaseReserva.Service
     public class ReservaService : BaseService<Reserva>, IReservaService
     {
         private readonly IReservaRepository _reservaRepository;
+        private readonly IAvaliacaoRepository _avaliacaoRepository;
 
-        public ReservaService(IReservaRepository reservaRepository) : base(reservaRepository)
+        public ReservaService(IReservaRepository reservaRepository, IAvaliacaoRepository avaliacaoRepository) : base(reservaRepository)
         {
             _reservaRepository = reservaRepository;
+            _avaliacaoRepository = avaliacaoRepository;
         }
 
         public Reserva Add(ReservaDto reservaDto)
@@ -47,6 +49,25 @@ namespace ApiBaseReserva.Service
         public int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto)
         {
             return _reservaRepository.CapacidadeReserva(reservaFiltrosDto);
+        }
+
+        public Avaliacao Avaliar(AvaliacaoDto avaliacaoDto)
+        {
+            var avaliacao = _avaliacaoRepository.Insert(new Avaliacao(avaliacaoDto));
+
+            _reservaRepository.AlterarAvaliado(avaliacaoDto.ReservaId);
+
+            return avaliacao;
+        }
+
+        public Avaliacao BuscarAvaliacaoPorReservaId(long reservaId)
+        {
+            return _avaliacaoRepository.BuscarAvaliacaoPorReservaId(reservaId);
+        }
+
+        public IEnumerable<Avaliacao> BuscarAvaliacaoPorEmpresaId(long empresaId)
+        {
+            return _avaliacaoRepository.BuscarAvaliacaoPorEmpresaId(empresaId);
         }
     }
 }

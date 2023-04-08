@@ -20,5 +20,6 @@ namespace ApiBaseReserva.Domain.Dtos
         public bool? Cancelada { get; set; }
         public string MotivoCancelamento { get; set; }
         public int? UsuarioCancelamentoId { get; set; }
+        public long? ServicoId { get; set; }
     }
 }

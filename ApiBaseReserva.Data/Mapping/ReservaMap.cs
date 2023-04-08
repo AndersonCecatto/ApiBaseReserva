@@ -22,6 +22,7 @@ namespace ApiBaseReserva.Data.Mapping
             builder.Property(p => p.Cancelada).HasColumnName("cancelada").HasColumnType("bool");
             builder.Property(p => p.MotivoCancelamento).HasColumnName("motivo_cancelamento").HasColumnType("varchar(300)");
             builder.Property(p => p.UsuarioCancelamentoId).HasColumnName("usuario_cancelamento_id").HasColumnType("int");
+            builder.Property(p => p.Avaliado).HasColumnName("avaliado").HasColumnType("bool");
 
             builder.Property(p => p.EmpresaId).HasColumnName("empresa_id").HasColumnType("int");
             builder.HasOne(p => p.Empresa);
@@ -34,6 +35,10 @@ namespace ApiBaseReserva.Data.Mapping
 
             builder.Property(p => p.PeriodoId).HasColumnName("empresa_periodo_id").HasColumnType("int");
             builder.HasOne(p => p.Periodo);
+
+            builder.Property(p => p.ServicoId).HasColumnName("servico_id").HasColumnType("int");
+            builder.HasOne(p => p.Servico);
+
         }
     }
 }
