@@ -59,7 +59,7 @@ namespace ApiBaseReserva.Controllers
 
         [HttpPost]
         [Route("CapacidadeReserva")]
-        public IActionResult BuscarPorEmpresaId(ReservaFiltrosDto reservaFiltrosDto)
+        public IActionResult CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto)
         {
             return Execute(() => _reservaService.CapacidadeReserva(reservaFiltrosDto));
         }
@@ -77,13 +77,5 @@ namespace ApiBaseReserva.Controllers
         {
             return Execute(() => _reservaService.BuscarAvaliacaoPorReservaId(reservaId));
         }
-
-        [HttpGet]
-        [Route("BuscarAvaliacaoEmpresa/{empresaId}")]
-        public IActionResult BuscarAvaliacaoPorEmpresaId(long empresaId)
-        {
-            return Execute(() => _reservaService.BuscarAvaliacaoPorEmpresaId(empresaId));
-        }
-
     }
 }

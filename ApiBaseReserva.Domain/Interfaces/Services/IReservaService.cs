@@ -15,6 +15,5 @@ namespace ApiBaseReserva.Domain.Interfaces.Services
         int CapacidadeReserva(ReservaFiltrosDto reservaFiltrosDto);
         Avaliacao Avaliar(AvaliacaoDto avaliacaoDto);
         Avaliacao BuscarAvaliacaoPorReservaId(long reservaId);
-        IEnumerable<Avaliacao> BuscarAvaliacaoPorEmpresaId(long empresaId);
     }
 }

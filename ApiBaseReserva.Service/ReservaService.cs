@@ -64,10 +64,5 @@ namespace ApiBaseReserva.Service
         {
             return _avaliacaoRepository.BuscarAvaliacaoPorReservaId(reservaId);
         }
-
-        public IEnumerable<Avaliacao> BuscarAvaliacaoPorEmpresaId(long empresaId)
-        {
-            return _avaliacaoRepository.BuscarAvaliacaoPorEmpresaId(empresaId);
-        }
     }
 }

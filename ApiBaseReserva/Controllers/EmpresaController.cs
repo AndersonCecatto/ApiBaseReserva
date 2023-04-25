@@ -27,7 +27,7 @@ namespace ApiBaseReserva.Controllers
         [HttpGet]
         public IActionResult BuscarTodos()
         {
-            return Execute(() => _empresaService.GetAll());
+            return Execute(() => _empresaService.BuscarTodas());
         }
 
         [HttpPut]
@@ -37,10 +37,10 @@ namespace ApiBaseReserva.Controllers
         }
 
         [HttpGet]
-        [Route("{empresaId}")]
-        public IActionResult GetById(long empresaId)
+        [Route("{empresaId}/BuscarAvaliacoes/{buscarAvaliacoes}")]
+        public IActionResult GetById(long empresaId, bool buscarAvaliacoes)
         {
-            return Execute(() => _empresaService.GetById(empresaId));
+            return Execute(() => _empresaService.BuscarPorId(empresaId, buscarAvaliacoes));
         }
     }
 }

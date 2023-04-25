@@ -1,6 +1,7 @@
 ﻿using ApiBaseReserva.Domain.Common;
 using ApiBaseReserva.Domain.Dtos;
 using System;
+using System.Collections.Generic;
 
 namespace ApiBaseReserva.Domain.Entities
 {
@@ -38,5 +39,6 @@ namespace ApiBaseReserva.Domain.Entities
         public virtual EmpresaAdicional EmpresaAdicional { get; set; }
         public string ImagemName { get; set; }
         public byte[] Imagem { get; set; }
+        public virtual IList<Avaliacao> Avaliacaos { get; set; }
     }
 }

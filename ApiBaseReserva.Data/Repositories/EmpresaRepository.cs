@@ -18,6 +18,7 @@ namespace ApiBaseReserva.Data.Repositories
         public override IEnumerable<Empresa> GetAll()
         {
             return _apiBaseContext.Set<Empresa>()
+                                  .AsNoTracking()
                                   .Include(x => x.Endereco)
                                   .ThenInclude(x => x.Cidade)
                                   .Include(x => x.EmpresaAdicional)
